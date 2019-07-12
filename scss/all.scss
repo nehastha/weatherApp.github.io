@@ -1,0 +1,83 @@
+body{
+    height: 100vh;
+    background-image: url(../images/weatherbck.png);
+    background-size: cover;
+    
+}
+
+#wrapper{
+    overflow: hidden;
+    // height: 100vh;
+    // background-image: url('/images/weartherbckground.png');
+    // background-size: cover;
+}
+
+.title{
+    margin-top: 10% ;
+    padding-bottom: 5%;
+}
+
+.searchPlace{
+    width: 50%;
+    height: 55px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.fa-search{
+    font-size: 30px;
+    position: absolute;
+    // right: 30%;
+    // top: 37%;
+    // padding: 2px;
+}
+
+
+ .humiditydiv{
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 60px;
+    color: #fff;
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+}
+
+.tempdiv{
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 60px;
+    color: #fff;
+}
+
+.cityHolder{
+    // position:absolute;
+    // left: 25%;
+    // top: 40%;
+    // transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.citynm{
+    top: 30px;
+    font-family: "Courier New";
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.showWrapper{
+    // border: 1px solid black;
+    border-radius: 5px;
+    height: 200px;
+    width: 50%;
+    margin: 0 auto;
+}

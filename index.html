@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="scss/all.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="wholeWrapper">
+            <header>
+                <div class="container">
+                    <p class="h1 text-center title">Weather Forecast!!!</p>
+                </div>
+            </header>
+            <div class="showWeather text-center">
+                <div class="container">
+                    <div class="searchBox">
+                        <input class="searchPlace" type="text" placeholder="Enter the place name" id="searchPlace">
+                        <a id="searchBtn" href="#"><i class="fa fa-search"></i></a>
+                    </div>
+                    <div class="showWrapper">
+                        <div class="cityDiv">
+                            <div class="cityHolder">
+                                <div id="cityNme" class="citynm"></div>
+                                <div src="" alt="" id="icon"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="temperature">
+                            <div id="tempDiv" class="tempdiv"></div>
+                        </div>
+
+                        <div class="humidity">
+                            <div id="humidityDiv" class="humiditydiv"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>oo
+
+
+<!-- <script src="weather.js"></script> -->
+
+<script>
+const apiKey = "5cdd24dc1cdec8f93da5df66dc74779b";
+
+
+let searchButton = document.getElementById('searchBtn');
+let searchLocation = document.getElementById('searchPlace');
+let cityName = document.getElementById('cityNme');
+let temperature = document.getElementById('tempDiv');
+let humidity = document.getElementById('humidityDiv');
+let icon = document.getElementById("icon");
+
+searchButton.addEventListener('click', function(){
+   
+    
+    debugger;
+    if (searchLocation.value === ""){
+        console.log('searchlocation');
+        alert('the field is empty');
+    }
+    else{
+        alert('successful');
+        let output = "https://api.openweathermap.org/data/2.5/weather?q=" + searchLocation.value + "&appid="+apiKey;
+        console.log(output);
+        httpRequestAsync(output, theResponse);
+
+    }
+
+});
+
+function theResponse(response) {
+    let jsonObject = JSON.parse(response);
+    cityName.innerHTML = jsonObject.name;
+    // icon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
+    temperature.innerHTML = "Temperature:" + parseInt(jsonObject.main.temp - 273) + "°";
+    humidity.innerHTML = "Humidity:"+ jsonObject.main.humidity + "%";
+  }
+  
+  function httpRequestAsync(url, callback)
+  {
+    console.log("hello");
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.onreadystatechange = () => { 
+          if (httpRequest.readyState == 4 && httpRequest.status == 200)
+              callback(httpRequest.responseText);
+      }
+      httpRequest.open("GET", url, true); // true for asynchronous 
+      httpRequest.send();
+  }
+
+</script>
+</body>
+
+</html>

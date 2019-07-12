@@ -1,0 +1,67 @@
+body {
+  height: 100vh;
+  background-image: url(../images/weatherbck.png);
+  background-size: cover;
+}
+
+#wrapper {
+  overflow: hidden;
+}
+
+.title {
+  margin-top: 10%;
+  padding-bottom: 5%;
+}
+
+.searchPlace {
+  width: 50%;
+  height: 55px;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.fa-search {
+  font-size: 30px;
+  position: absolute;
+}
+
+.humiditydiv {
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 60px;
+  color: #fff;
+}
+
+.tempdiv {
+  font-family: "Courier New";
+  font-weight: bold;
+  font-size: 60px;
+  color: #fff;
+}
+
+.cityHolder {
+  text-align: center;
+}
+
+.citynm {
+  top: 30px;
+  font-family: "Courier New";
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.showWrapper {
+  border-radius: 5px;
+  height: 200px;
+  width: 50%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=all.css.map */
